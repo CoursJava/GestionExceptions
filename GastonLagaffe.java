@@ -105,6 +105,22 @@ public class GastonLagaffe {
 		}
 		System.out.println("Déjà terminé ? Il progresse, ce petit...");
 	}
+	
+	//Partie 8
+	public void preparerCafe(String personne) throws Exception {
+		System.out.println("Un café pour " + personne + " ? OK...");
+		System.out.println("D'abord, j'allume la cafetière.");
+		System.out.println("Le café chauffe... C'est prêt !");
+	
+		if(!personne.equals("Moiselle Jeanne")) {
+			System.out.println("J'ai le temps de faire un peu de chimie.");
+			throw new Exception("Aïe , je me suis brûlé !");
+		}
+		
+		System.out.println("J'éteins la cafetière.");
+	}
+
+	
 
 	public static void main(String[] args) {
 		//Partie 1
@@ -114,22 +130,32 @@ public class GastonLagaffe {
 		gaston.trierCourrierEnRetard(20);
 
 		//Partie 3
-		System.out.println("\n\n\n");
+		System.out.println("\n");
 		gaston.rangerBureau();
 
 		//Partie 4
-		System.out.println("\n\n\n");
+		System.out.println("\n");
 		System.out.println("Gaston, Mr. Demesmaeker arrive, faites vite !");
 		gaston.faireSignerContrats();
 
 		//Partie5
-		System.out.println("\n\n\n");
+		System.out.println("\n");
 		appeler(gaston, "Mr. Boulier");
 		appeler(gaston, "Prunelle");
 		appeler(gaston, "Jules-de-chez-Smith");
 
 		// Partie 7
-		System.out.println("\n\n\n");
+		System.out.println("\n");
 		preparerJournal(gaston);
+		
+		//Partie 8
+		System.out.println("\n");
+		try	{
+			gaston.preparerCafe("Moiselle Jeanne");
+			gaston.preparerCafe("Lebrac");
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }
