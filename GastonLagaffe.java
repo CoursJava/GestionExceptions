@@ -58,6 +58,30 @@ public class GastonLagaffe {
 		System.out.println("Voyons comment allumer cette machine...");
 		throw new Exception("Mais qui a démonté tout l'intérieur ?");
 	}
+	
+	public void repondreAuTelephone(String appelant) throws ExceptionMenfin, ExceptionBof {
+		if (appelant.equals("Mr. Boulier")) {
+			throw new ExceptionMenfin("Je finis un puzzle.");
+		}
+
+		else if (appelant.equals("Prunelle")) {
+			throw new ExceptionBof("Pas le temps, je suis dé-bor-dé !");
+		} else {
+			System.out.println("Allô, ici Gaston, j'écoute...");
+		}
+	}
+	
+	private static void appeler(GastonLagaffe gaston, String appelant) {
+		System.out.println("Gaston, " + appelant + " au téléphone !");
+		
+		try {
+			gaston.repondreAuTelephone(appelant);
+		}
+		catch(Exception e) {
+			System.out.println("Encore une bonne excuse, j'imagine ?");
+			System.out.println(e.getMessage());
+		}
+	}
 
 	public static void main(String[] args) {
 		GastonLagaffe gaston = new GastonLagaffe();
@@ -73,5 +97,11 @@ public class GastonLagaffe {
 		
 		System.out.println("Gaston, Mr. Demesmaeker arrive, faites vite !");
 		gaston.faireSignerContrats();
+		
+		System.out.println("\n\n\n");
+		
+		appeler(gaston, "Mr. Boulier");
+		appeler(gaston, "Prunelle");
+		appeler(gaston, "Jules-de-chez-Smith");
 	}
 }
